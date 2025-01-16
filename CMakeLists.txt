@@ -75,6 +75,7 @@ else()
       src/sys/sys.c
       src/acl.c
       src/sys/rfid_reader.c 
+      src/sys/wifi.c
       src/sys/device/mfrc522.c 
       src/sys/device/relay.c 
       ${tiny-json_SOURCE_DIR}/tiny-json.c
@@ -84,6 +85,7 @@ else()
     )
 
     target_compile_definitions(hack_rfid PRIVATE __PICO_BUILD__)
+    target_compile_definitions(hack_rfid PRIVATE WIFI_SSID=${WIFI_SSID} WIFI_PASSWORD=${WIFI_PASSWORD})
 
     target_include_directories(hack_rfid PRIVATE
       ${tiny-json_SOURCE_DIR}

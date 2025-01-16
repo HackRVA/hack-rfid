@@ -6,8 +6,7 @@
 #include <stdio.h>
 
 #include "fs.h"
-/*#include "pico/cyw43_arch.h"*/
-/*#include "wifi.h"*/
+#include "wifi.h"
 
 void sys_init() {
   stdio_init_all();
@@ -18,8 +17,7 @@ void sys_init() {
 #endif
   sleep_ms(5000);
 
-  /*wifi_init(CYW43_COUNTRY_USA);*/
-  /*wifi_non_blocking_setup(CYW43_COUNTRY_USA);*/
+  wifi_init();
 }
 
 void sys_run(callback_func update_callback) {
