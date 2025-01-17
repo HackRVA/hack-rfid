@@ -82,7 +82,7 @@ int counter = 0;
  * we need to be able to check if systems are running.
  * If they aren't running, we need to restart them.
  *
- * i.e. If we determine that we aren't connected to wifi, reconnect.
+ * e.g. If we determine that we aren't connected to wifi, reconnect.
  *
  * Things should run on an interval and not block.
  */

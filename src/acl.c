@@ -165,6 +165,9 @@ uint32_t acl_hash(struct access_control_list *acl) {
   return hash;
 }
 
+/*
+ * dbj2: http://www.cse.yorku.ca/~oz/hash.html
+ */
 static uint32_t hash_string(const char *str) {
   uint32_t hash = 5381;
   while (*str) {

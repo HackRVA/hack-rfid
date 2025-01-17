@@ -4,6 +4,8 @@ This is a candidate to replace the current rfid solution at hackrva.
 
 If you are interested in contributing, I can bring some spare mcus and readers to hackrva.
 
+The main problem this is trying to solve is that there's no verification step between the server and the current rfid reader.
+
 ## high level
 ### evaluate access
 When someone scans their rfid fob, the mcu will compare it to the ACL (access control list) that it currently has stored.
@@ -13,6 +15,21 @@ Access Denied -> log the event
 
 ## dev environment
 > TODO: add some notes on setting up dev environment -- it's similar to [badge](https://github.com/HackRVA/badge2024)
+
+Essentially:
+* disconnect the Board
+* hold down BOOTSEL button
+* connect the Board
+
+```bash
+bash run_cmake.sh # you should only have to run this the first time
+cd build
+make
+```
+copy the firmware to the Board
+```bash
+cp hack_rfid.uf2 /media/$USER/RPI-RP2/
+```
 
 ## WIP
 
