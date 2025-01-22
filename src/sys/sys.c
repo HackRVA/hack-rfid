@@ -8,30 +8,32 @@
 #include "fs.h"
 #include "wifi.h"
 
-void sys_init() {
-  stdio_init_all();
+void sys_init()
+{
+	stdio_init_all();
 
-  sleep_ms(500);
+	sleep_ms(500);
 #if WITH_FS
-  fs_init();
+	fs_init();
 #endif
-  sleep_ms(5000);
+	sleep_ms(5000);
 
-  wifi_init();
+	wifi_init();
 }
 
-void sys_run(callback_func update_callback) {
-  if (!update_callback) {
-    fprintf(stderr, "Error: Callback function cannot be NULL\n");
-    return;
-  }
+void sys_run(callback_func update_callback)
+{
+	if (!update_callback) {
+		fprintf(stderr, "Error: Callback function cannot be NULL\n");
+		return;
+	}
 
-  printf("Waiting for a card...\n");
+	printf("Waiting for a card...\n");
 
-  while (true) {
-    update_callback();
-    sleep_ms(1000);
-  }
+	while (true) {
+		update_callback();
+		sleep_ms(1000);
+	}
 }
 
 #else // Linux
@@ -39,19 +41,23 @@ void sys_run(callback_func update_callback) {
 #include <stdio.h>
 #include <unistd.h>
 
-void sys_init() { printf("System initialized for Linux.\n"); }
+void sys_init()
+{
+	printf("System initialized for Linux.\n");
+}
 
-void sys_run(callback_func update_callback) {
-  if (!update_callback) {
-    fprintf(stderr, "Error: Callback function cannot be NULL\n");
-    return;
-  }
+void sys_run(callback_func update_callback)
+{
+	if (!update_callback) {
+		fprintf(stderr, "Error: Callback function cannot be NULL\n");
+		return;
+	}
 
-  printf("Running on Linux...\n");
+	printf("Running on Linux...\n");
 
-  while (1) {
-    update_callback();
-    sleep(1);
-  }
+	while (1) {
+		update_callback();
+		sleep(1);
+	}
 }
 #endif

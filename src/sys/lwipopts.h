@@ -6,7 +6,7 @@
 
 #ifndef CYW43_COUNTRY
 #define CYW43_COUNTRY                                                          \
-  CYW43_COUNTRY_US // or whichever is relevant: CYW43_COUNTRY_UK, etc.
+	CYW43_COUNTRY_US // or whichever is relevant: CYW43_COUNTRY_UK, etc.
 #endif
 // allow override in some examples
 #ifndef NO_SYS

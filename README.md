@@ -2,8 +2,6 @@
 Please do contribute if you can.  
 This is a candidate to replace the current rfid solution at hackrva.
 
-If you are interested in contributing, I can bring some spare mcus and readers to hackrva.
-
 The main problem this is trying to solve is that there's no verification step between the server and the current rfid reader.
 
 ## high level

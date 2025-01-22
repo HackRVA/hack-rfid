@@ -9,9 +9,9 @@
 #define MAX_USERS 1000
 
 struct access_control_list {
-  char users[MAX_USERS][USER_MAX_LENGTH];
-  size_t user_count;
-  const char *file_path;
+	char users[MAX_USERS][USER_MAX_LENGTH];
+	size_t user_count;
+	const char *file_path;
 };
 
 void acl_load(struct access_control_list *acl, const char *file_path);

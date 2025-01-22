@@ -1,5 +1,5 @@
 
-#ifndef RELAY_H 
+#ifndef RELAY_H
 #define RELAY_H
 
 void relay_init();

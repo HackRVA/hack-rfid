@@ -17,13 +17,13 @@
 #ifdef __PICO_BUILD__
 typedef struct {
 #if WITH_FS
-  lfs_file_t *handle;
+	lfs_file_t *handle;
 #endif
 } File;
 
 #else
 typedef struct {
-  int fd;
+	int fd;
 } File;
 #endif
 
