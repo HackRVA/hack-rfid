@@ -12,13 +12,13 @@
  * */
 int wifi_init()
 {
-	/* skip if we don't have ssid or password set */
-	if (strlen(WIFI_SSID) == 0 || strlen(WIFI_PASSWORD) == 0) {
-		return 0;
-	}
 	if (cyw43_arch_init_with_country(CYW43_COUNTRY_USA)) {
 		printf("failed to initialize wifi\n");
 		return 1;
+	}
+	/* skip if we don't have ssid or password set */
+	if (strlen(WIFI_SSID) == 0 || strlen(WIFI_PASSWORD) == 0) {
+		return 0;
 	}
 	printf("wifi initialized\n");
 	printf("connecting to ssid: %s\n", WIFI_SSID);
