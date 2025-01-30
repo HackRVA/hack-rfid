@@ -165,6 +165,18 @@ void quick_sort_users_in_place(struct access_control_list *acl)
 	quick_sort_users(acl->users, 0, acl->user_count - 1);
 }
 
+/*
+ * dbj2: http://www.cse.yorku.ca/~oz/hash.html
+ */
+static uint32_t hash_string(const char *str, uint32_t hash)
+{
+	while (*str) {
+		hash = ((hash << 5) + hash) + (unsigned char)(*str);
+		str++;
+	}
+	return hash = ((hash << 5) + hash) + 0xFE;
+}
+
 uint32_t acl_hash(struct access_control_list *acl)
 {
 	quick_sort_users_in_place(acl);
@@ -172,24 +184,7 @@ uint32_t acl_hash(struct access_control_list *acl)
 	uint32_t hash = 5381;
 	for (size_t i = 0; i < acl->user_count; i++) {
 		const char *str = acl->users[i];
-		while (*str) {
-			hash = ((hash << 5) + hash) + (unsigned char)(*str);
-			str++;
-		}
-		hash = ((hash << 5) + hash) + 0xFE;
-	}
-	return hash;
-}
-
-/*
- * dbj2: http://www.cse.yorku.ca/~oz/hash.html
- */
-static uint32_t hash_string(const char *str)
-{
-	uint32_t hash = 5381;
-	while (*str) {
-		hash = ((hash << 5) + hash) + (unsigned char)(*str);
-		str++;
+		hash = hash_string(str, hash);
 	}
 	return hash;
 }
